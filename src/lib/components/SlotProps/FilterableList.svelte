@@ -1,11 +1,22 @@
 <script>
+	/**
+	 * @type {{name:string,hsl:string,rgb:string,hex:string}[]}
+	 */
 	export let data;
+	/**
+	 * @type {string}
+	 */
 	export let field;
 
 	let search = '';
 
 	$: regex = search ? new RegExp(search, 'i') : null;
-	$: matches = (item) => (regex ? regex.test(item[field]) : true);
+	$: matches = (
+		/**
+		 * @type {any}
+		 */
+		item
+	) => (regex ? regex.test(item[field]) : true);
 </script>
 
 <div class="list">
